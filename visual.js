@@ -27,8 +27,73 @@ if(carousel){
 
 const pinnedCover=document.querySelector('.cover-page .cover');
 if(pinnedCover){
- const entrance=document.querySelector('.topic-entrances'),motionPreference=matchMedia('(prefers-reduced-motion: reduce)');let scrollFrame=0;
- function updateCover(){scrollFrame=0;const height=pinnedCover.offsetHeight;const progress=motionPreference.matches?0:Math.min(1,Math.max(0,1-entrance.getBoundingClientRect().top/height));pinnedCover.style.setProperty('--cover-progress',progress.toFixed(3));pinnedCover.inert=!motionPreference.matches&&entrance.getBoundingClientRect().top<=0;}
+ const entrance=document.querySelector('.topic-entrances'),motionPreference=matchMedia('(prefers-reduced-motion: reduce)'),tube=document.querySelector('.tube-flight');let scrollFrame=0;
+ // Only PUSH uses a timed scroll; wheel and touch keep native behavior.
+ const pushButton=pinnedCover.querySelector('.begin');
+ let pushFrame=0;
+ function cancelPush(){cancelAnimationFrame(pushFrame);pushFrame=0;}
+ for(const event of ['wheel','touchstart','pointerdown'])addEventListener(event,cancelPush,{passive:true});
+ addEventListener('keydown',event=>{if(['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' ','Escape','Tab'].includes(event.key))cancelPush();});
+ motionPreference.addEventListener('change',cancelPush);
+ pushButton?.addEventListener('click',event=>{
+  if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||event.button!==0)return;
+  event.preventDefault();cancelPush();
+  const from=scrollY,target=from+entrance.getBoundingClientRect().top;
+  function finish(){
+   pushFrame=0;
+   entrance.setAttribute('tabindex','-1');entrance.focus({preventScroll:true});
+   if(location.hash!=='#yearbook')history.pushState(null,'','#yearbook');
+  }
+  if(motionPreference.matches){scrollTo({top:target,behavior:'instant'});finish();return;}
+  const started=performance.now(),duration=1900;
+  function step(now){
+   const t=Math.min(1,(now-started)/duration),eased=t*t*(3-2*t);
+   scrollTo({top:from+(target-from)*eased,behavior:'instant'});
+   if(t<1)pushFrame=requestAnimationFrame(step);else finish();
+  }
+  pushFrame=requestAnimationFrame(step);
+ });
+ const seed=tube?.querySelector('img');
+ // Stable pseudo-random values keep reverse scrolling perfectly repeatable.
+ const noise=(i,salt)=>{const n=Math.sin((i+1)*127.1+salt*311.7)*43758.5453;return n-Math.floor(n);};
+ const swarm=seed?Array.from({length:27},(_,i)=>{
+  const item=document.createElement('div'),ring=seed.cloneNode(true),cushion=seed.cloneNode(true);
+  const variant=(i*5)%9;
+  item.className='rush-tube';item.dataset.variant=variant;
+  ring.className='tube-ring tube-color-'+Math.floor(variant/3);
+  cushion.className='tube-cushion tube-color-'+(variant%3);
+  item.append(ring,cushion);tube.append(item);
+  return item;
+ }):[];
+ seed?.remove();
+ function updateCover(){
+  scrollFrame=0;
+  const height=pinnedCover.offsetHeight,top=entrance.getBoundingClientRect().top;
+  const progress=motionPreference.matches?0:Math.min(1,Math.max(0,1-top/height));
+  pinnedCover.style.setProperty('--cover-progress',progress.toFixed(3));
+  pinnedCover.inert=!motionPreference.matches&&top<=0;
+  if(tube){
+   const visible=!motionPreference.matches&&progress>.045&&progress<.99;
+   tube.style.visibility=visible?'visible':'hidden';
+   if(visible){
+    const columns=innerWidth<=600?4:6;
+    swarm.forEach((img,i)=>{
+     const size=Math.max(145,Math.min(450,innerWidth/(columns-1)*1.5))*(.72+noise(i,1)*.58);
+     const start=.045+noise(i,2)*.19;
+     const duration=.62+noise(i,3)*.10;
+     const flight=Math.max(0,Math.min(1,(progress-start)/duration));
+     const y=innerHeight+size*.8-flight*(innerHeight+size*2.6);
+     // Jitter coverage slots rather than arranging tubes in visible rows.
+     const x=((i%columns)+noise(i,4)*.95-.35)*innerWidth/(columns-1);
+     const drift=Math.sin(flight*Math.PI)*(noise(i,5)-.5)*size*.65;
+     const rotation=noise(i,6)*360+flight*(noise(i,7)-.5)*240;
+     img.style.width=size+'px';
+     img.style.left=x+'px';
+     img.style.transform=`translate3d(calc(-50% + ${drift}px),${y}px,0) rotate(${rotation}deg) scale(${1-flight*.12})`;
+    });
+   }
+  }
+ }
  function queueCover(){if(!scrollFrame)scrollFrame=requestAnimationFrame(updateCover);}
  addEventListener('scroll',queueCover,{passive:true});addEventListener('resize',queueCover);motionPreference.addEventListener('change',queueCover);updateCover();
 }

@@ -40,3 +40,20 @@ Upload the photo to assets/, then locate the person's figure in team.html. Repla
 ```
 
 Keep the existing figcaption beneath it. Photos already present remain included; missing photos remain clearly marked placeholders. Content and recognition markers reflect this supplied edition, not automatic updates from the original Google Site.
+
+## Update your existing GitHub site
+
+1. Extract this ZIP.
+2. Open your existing repository, then Add file → Upload files.
+3. Upload all extracted files and the assets folder, preserving subfolders. Replace matching files. Keep index.html at the repository root.
+4. Commit changes. Your existing GitHub Pages settings and website address stay the same.
+5. Wait for the Pages deployment to finish, then refresh the website. If old content remains cached, use Ctrl+Shift+R.
+
+## Included in this export
+
+- 27 scattered tubes with all nine green, orange, and yellow ring/cushion combinations.
+- PUSH automatically scrolls over 1.9 seconds; manual scrolling can interrupt it.
+- Existing carousel, dropdown menus, team portraits/placeholders, and expandable shoutout.
+- Reduced-motion support.
+
+This is a standalone snapshot. Future changes to the ChatGPT site must be exported and uploaded again to update GitHub Pages.
