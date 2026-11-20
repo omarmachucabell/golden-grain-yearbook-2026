@@ -1,0 +1,28 @@
+import assert from 'node:assert/strict';
+import {pathToFileURL} from 'node:url';
+import inbox from '../dist/server/index.js';
+const {default:yearbook}=await import(pathToFileURL(process.argv[2]));
+function bucket(){const map=new Map();let rev=0;return {map,async get(k){const o=map.get(k);return o?{...o,body:o.bytes,json:async()=>JSON.parse(new TextDecoder().decode(o.bytes))}:null},async put(k,v,opts={}){const old=map.get(k);if(opts.onlyIf?.etagMatches&&opts.onlyIf.etagMatches!==old?.etag)return null;if(opts.onlyIf?.etagDoesNotMatch==='*'&&old)return null;const bytes=typeof v==='string'?new TextEncoder().encode(v):new Uint8Array(v);const o={bytes,etag:String(++rev),size:bytes.length,httpMetadata:opts.httpMetadata};map.set(k,o);return o},async delete(k){map.delete(k)},async list({prefix}){return {objects:[...map.keys()].filter(k=>k.startsWith(prefix)).map(key=>({key})),truncated:false}}}}
+const local=bucket(),remote=bucket();
+const yearEnv={BUCKET:remote,INBOX_SERVICE_KEY:'test-service-key'};
+const env={BUCKET:local,UPLOAD_PASSCODE:'test-only',YEARBOOK_ORIGIN:'https://yearbook.test',YEARBOOK_ACCESS_TOKEN:'test-access',INBOX_SERVICE_KEY:'test-service-key'};
+let cookie='',forwarded=0;
+globalThis.fetch=async(url,options)=>{assert.equal(new URL(url).origin,env.YEARBOOK_ORIGIN);assert.equal(options.headers['OAI-Sites-Authorization'],'Bearer test-access');assert.equal(options.redirect,'manual');forwarded++;return yearbook.fetch(new Request(url,{...options,duplex:'half'}),yearEnv)};
+const call=(path,method='GET',body,headers={})=>inbox.fetch(new Request('https://inbox.test'+path,{method,body,headers:{origin:'https://inbox.test',cookie,...headers}}),env);
+assert.equal((await call('/api/photos')).status,401);assert.equal(forwarded,0);
+assert.equal((await yearbook.fetch(new Request('https://yearbook.test/api/inbox/photos'),yearEnv)).status,401);
+const login=await call('/api/login','POST',JSON.stringify({passcode:'test-only'}));assert.equal(login.status,200);cookie=login.headers.get('set-cookie').split(';')[0];
+const bytes=new Uint8Array([255,216,255,0,2,3,4]);
+assert.equal((await call('/api/upload','POST',bytes,{origin:'https://evil.test'})).status,403);
+assert.equal((await call('/api/upload','POST','not an image')).status,415);
+const response=await call('/api/upload?name=original.jpg&batch=Halloween','POST',bytes);assert.equal(response.status,201);const {item}=await response.json();assert.equal(item.name,'original.jpg');assert.equal(item.batch,'Halloween');assert.match(item.src,/^\/yearbook-photo\//);
+assert.equal([...local.map.keys()].filter(k=>k.startsWith('photos/')||k.startsWith('inbox/')).length,0,'No originals stored in uploader');
+assert.equal([...remote.map.keys()].filter(k=>k.startsWith('photos/')).length,1,'Original stored in yearbook');
+assert.equal([...remote.map.keys()].filter(k=>k.startsWith('catalog/')).length,0,'No publication or page assignment');
+assert.deepEqual(new Uint8Array(await (await call(item.src)).arrayBuffer()),bytes);
+assert.equal((await (await call('/api/photos')).json()).items.length,1);
+assert.equal((await (await call('/api/upload?name=original.jpg&batch=Halloween','POST',bytes)).json()).duplicate,true);
+await local.put('inbox/legacy.json',JSON.stringify({name:'old.jpg',src:'/photos/old'}));const listed=await (await call('/api/photos')).json();assert.equal(listed.cursor,'legacy:');assert.equal((await (await call('/api/photos?cursor=legacy:')).json()).items[0].name,'old.jpg');
+globalThis.fetch=async()=>new Response('sign in',{status:302,headers:{location:'https://example.test'}});assert.equal((await call('/api/upload','POST',bytes)).status,502);
+await call('/api/logout','POST');assert.equal((await call(item.src)).status,401);
+console.log('PASS: passcode, service auth, CSRF, validation, original-byte upload directly into yearbook bucket, no automatic publishing, listing, media proxy, deduplication, legacy access, upstream failure, logout.');

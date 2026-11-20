@@ -1,0 +1,3 @@
+# Upload inbox integration
+The passcode-protected Photo Inbox streams originals into this site's BUCKET. Fixed `/api/inbox/upload`, `/api/inbox/photos`, and `/api/inbox/photo/<hash>` service routes require INBOX_SERVICE_KEY. The hosting platform remains owner-private. Original bytes live at photos/<sha256>, metadata at inbox/<id>.json. `/inbox-media/<hash>` serves those originals to authorized yearbook visitors; nothing is added to pages automatically.
+Revert the integration commit to remove these routes without deleting stored uploads. No existing HTML, CSS, assets, or manager routes are changed.

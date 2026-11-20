@@ -1,0 +1,9 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.dev.vars
+__pycache__/
+uploads/
+source/*/dist/server/
+source/*/dist/client/
