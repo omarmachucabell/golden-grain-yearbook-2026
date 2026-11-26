@@ -1,0 +1,64 @@
+.holiday-gallery-page{background:#090a08;color:#eeeae1;margin:0}
+.holiday-gallery-page .topic-header{position:relative;background:#090a08;border-bottom:1px solid #ffffff12}
+.holiday-gallery{min-height:calc(100svh - 76px);box-sizing:border-box;display:grid;grid-template-columns:minmax(180px,.75fr) minmax(0,3fr);align-items:center;gap:clamp(30px,4vw,72px);padding:65px 6%;max-width:1800px;margin:auto}
+.holiday-eyebrow{display:block;font:500 12px/1.6 Inter,sans-serif;letter-spacing:2.5px;color:#bdbbb2;margin-bottom:30px}
+.holiday-gallery-title h1{font:400 clamp(38px,4.2vw,72px)/.96 'Cormorant Garamond',Georgia,serif;text-transform:uppercase;letter-spacing:-.035em;margin:0}
+.holiday-rule{display:block;width:34px;height:1px;background:#aaa79c;margin-top:42px}
+.holiday-arches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,2.8vw,46px);align-items:start}
+.holiday-arch{display:block;min-width:0;text-decoration:none;color:inherit;text-align:center;--accent:#d9a25f}
+.holiday-frame{position:relative;isolation:isolate;padding:5px;background:var(--accent);box-shadow:0 18px 50px #0005;transition:transform .5s ease}
+.holiday-arch-image{height:clamp(280px,53svh,600px);overflow:hidden;background:#272921;position:relative}
+.holiday-arch img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;transition:transform .8s ease;filter:saturate(.95)}
+.holiday-arch-image:after{content:'';position:absolute;inset:0;box-shadow:inset 0 0 40px #0004;pointer-events:none}
+.holiday-arch h2{font:500 14px/1.5 Inter,sans-serif;letter-spacing:1.8px;text-transform:uppercase;margin:28px 0 0;min-height:3em}
+.holiday-halloween{--accent:#a86538}.holiday-halloween .holiday-frame{background:linear-gradient(150deg,#dca46b,#482c23 45%,#b97745);clip-path:polygon(20% 0,80% 0,100% 18%,95% 100%,5% 100%,0 18%);padding:7px}
+.holiday-halloween .holiday-arch-image{clip-path:polygon(20% 0,80% 0,100% 18%,95% 100%,5% 100%,0 18%)}
+.holiday-halloween img{object-position:48% 50%}
+.holiday-dia{--accent:#edac40}.holiday-dia .holiday-frame,.holiday-dia .holiday-arch-image{border-radius:48% 48% 12px 12px / 26% 26% 12px 12px}
+.holiday-dia .holiday-frame{background:linear-gradient(140deg,#ffcc61,#d1682c 45%,#b32e70 70%,#f6ba46);padding:7px;outline:1px solid #d88e4866;outline-offset:5px}
+.holiday-dia img{object-position:50% 40%}
+.holiday-dogs{--accent:#89b6a7}.holiday-dogs .holiday-frame,.holiday-dogs .holiday-arch-image{border-radius:45px 45px 70px 70px}
+.holiday-dogs .holiday-frame{padding:7px;background:linear-gradient(135deg,#c6d5bb,#578b7b 65%,#a4c1b1)}
+.holiday-dogs .holiday-frame:before{content:'';position:absolute;width:29px;height:40px;border:3px solid #b7b9aa;border-radius:50%;left:calc(50% - 17px);top:-28px;z-index:3;box-shadow:inset 0 0 0 2px #242c26;transform:rotate(-12deg)}
+.holiday-dogs img{object-position:50% 53%}
+.holiday-motif{position:absolute;z-index:2;pointer-events:none;display:block;width:42px;height:42px;color:var(--accent)}
+.holiday-motif svg{width:100%;height:100%;fill:currentColor;filter:drop-shadow(0 3px 5px #0005)}
+.holiday-halloween .holiday-motif{color:#161111;width:52px;animation:bat-drift 7s ease-in-out infinite}
+.holiday-halloween .motif-0{left:8%;top:24%}.holiday-halloween .motif-1{right:7%;top:12%;width:38px;animation-delay:-3s}.holiday-halloween .motif-2{right:14%;bottom:12%;width:32px;animation-delay:-5s}
+.holiday-dia .motif-0{left:-15px;top:25%;width:46px;height:46px;animation:marigold-turn 20s linear infinite}.holiday-dia .motif-1{right:-13px;bottom:6%;width:52px;height:52px;animation:marigold-turn 24s linear infinite reverse}.holiday-dia .motif-2{right:15%;top:8%;width:13px;height:22px;animation:petal-fall 9s ease-in-out infinite}
+.holiday-dogs .holiday-motif{width:28px;height:28px;color:#e0ead6;animation:paw-step 9s ease-in-out infinite}.holiday-dogs .motif-0{left:12%;bottom:10%;transform:rotate(-20deg)}.holiday-dogs .motif-1{left:26%;bottom:21%;transform:rotate(12deg);animation-delay:1.2s}.holiday-dogs .motif-2{left:17%;bottom:34%;transform:rotate(-15deg);animation-delay:2.4s}
+@keyframes bat-drift{0%,100%{transform:translate(0,0) rotate(-7deg)}50%{transform:translate(9px,-10px) rotate(8deg)}}
+@keyframes marigold-turn{to{transform:rotate(360deg)}}
+@keyframes petal-fall{0%{opacity:0;transform:translate(0,-12px) rotate(0)}15%,70%{opacity:.85}100%{opacity:0;transform:translate(-25px,160px) rotate(180deg)}}
+@keyframes paw-step{0%,15%,75%,100%{opacity:.15}30%,55%{opacity:.85}}
+.holiday-arch:focus-visible{outline:2px solid var(--accent);outline-offset:14px;border-radius:8px}
+@media(hover:hover){.holiday-arch:hover .holiday-frame{transform:translateY(-6px)}.holiday-arch:hover img{transform:scale(1.045)}}
+@media(max-width:760px){.holiday-gallery{min-height:calc(100svh - 72px);grid-template-columns:1fr;align-content:center;gap:52px;padding:32px 6% 40px}.holiday-gallery-title h1{font-size:clamp(40px,9vw,64px);line-height:1}.holiday-gallery-title h1 br{display:none}.holiday-eyebrow{margin-bottom:16px;font-size:12px;letter-spacing:1.5px}.holiday-rule{margin-top:22px}.holiday-arches{gap:18px}.holiday-arch-image{height:clamp(230px,39svh,370px)}.holiday-arch h2{font-size:14px;letter-spacing:.3px;margin-top:22px;min-height:4.5em}.holiday-frame,.holiday-dia .holiday-frame,.holiday-dogs .holiday-frame,.holiday-halloween .holiday-frame{padding:4px}.holiday-dogs .holiday-frame,.holiday-dogs .holiday-arch-image{border-radius:25px 25px 35px 35px}.holiday-dia .motif-0{width:30px;height:30px;left:-10px}.holiday-dia .motif-1{width:33px;height:33px;right:-10px}.holiday-halloween .holiday-motif{width:34px}.holiday-dogs .holiday-motif{width:22px;height:22px}}
+@media(prefers-reduced-motion:reduce){.holiday-motif{animation:none!important}.holiday-arch img,.holiday-frame{transition:none}.holiday-dia .motif-2{display:none}}
+
+/* The photographs lead directly into the holiday directory. */
+.holiday-gallery{grid-template-columns:minmax(0,1fr);max-width:1250px;gap:0}
+
+/* One viewport: the masthead stays above the holiday collection. */
+html:has(.holiday-gallery-page){height:100%;overflow:hidden;scroll-padding-top:0}
+body.holiday-gallery-page{height:100svh;height:100dvh;min-height:0;padding:0;overflow:hidden;display:flex;flex-direction:column}
+.holiday-gallery-page .topic-header{position:relative;inset:auto;top:0;flex-shrink:0;margin:0;z-index:20}
+.holiday-gallery-page .holiday-gallery{flex:1;min-height:0;width:100%;padding:40px 6% 24px;align-content:center}
+.holiday-gallery-page .holiday-arch-image{height:clamp(60px,calc(100dvh - 260px),530px)}
+@media(max-width:760px){
+ .holiday-gallery-page .holiday-gallery{padding:36px 6% 16px}
+ .holiday-gallery-page .holiday-arch-image{height:clamp(60px,calc(100dvh - 260px),370px)}
+ .holiday-gallery-page .holiday-arch h2{margin-top:18px}
+}
+@media(max-height:450px){
+ .holiday-gallery-page .holiday-gallery{padding-top:30px;padding-bottom:6px}
+ .holiday-gallery-page .holiday-arch-image{height:max(40px,calc(100dvh - 220px))}
+ .holiday-gallery-page .holiday-arch h2{margin-top:10px;min-height:0}
+}
+
+/* A quiet, drifting star-print behind the holiday collection. */
+.holiday-gallery-page{isolation:isolate}
+.holiday-gallery-page:before{content:'';position:fixed;inset:-80px;z-index:-1;pointer-events:none;opacity:.1;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='%23c9b68d' stroke-width='.7'%3E%3Cpath d='M40 30Q40 40 50 40Q40 40 40 50Q40 40 30 40Q40 40 40 30Z'/%3E%3Cpath d='M120 110Q120 120 130 120Q120 120 120 130Q120 120 110 120Q120 120 120 110Z'/%3E%3C/g%3E%3Cg fill='%23c9b68d'%3E%3Ccircle cx='120' cy='40' r='.8'/%3E%3Ccircle cx='40' cy='120' r='.8'/%3E%3C/g%3E%3C/svg%3E");background-size:160px 160px;animation:holiday-background-drift 48s ease-in-out infinite alternate}
+.holiday-gallery-page:after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 25% 45%,#b7773010,transparent 55%),radial-gradient(ellipse at 85% 65%,#688c7910,transparent 55%),radial-gradient(#e5d5b609 .6px,transparent .8px);background-size:auto,auto,5px 5px}
+@keyframes holiday-background-drift{from{transform:translate3d(-12px,-10px,0)}to{transform:translate3d(12px,14px,0)}}
+@media(prefers-reduced-motion:reduce){.holiday-gallery-page:before{animation:none}}

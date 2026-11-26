@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(1a01d0fd6d764b07523d6ff213723d656125c291ee1ea1e27c842ad856eef793.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(533523277c6d1f75ddaf41d633b2ef52a9484150e211e902da234e0bcd62c84f.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(0e94fc87a6b298f687f7e28cd8f50d72c11a67d6aad89c82ed503945731c6e79.woff2) format('truetype');
+}

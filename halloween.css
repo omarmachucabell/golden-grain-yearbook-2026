@@ -1,0 +1,280 @@
+/* The Halloween chapter uses the existing navigation and photo viewer. */
+body.halloween {
+  --ink: #121114;
+  --paper: #ece8e2;
+  --display: 'Bodoni Moda', 'Baskerville', 'Times New Roman', serif;
+  --header-size: 76px;
+  padding-top: 0;
+  background: #000;
+}
+.halloween .topic-header {position:sticky;top:0;margin:0;background:#000;}
+.eve-opening[data-scroll-reveal] ~ main .eve-nav-entry::after {content:"";display:block;height:clamp(90px,18svh,180px);}
+.halloween .topic-subnav {position:sticky;top:var(--header-size);z-index:1;padding:.5rem 4%;max-width:none;background:#000;}
+.halloween .topic-subnav a {color:#eeeae4;}
+.halloween :is(.topic-header,.topic-subnav) {opacity:var(--eve-nav-opacity,1);}
+.halloween.eve-nav-hidden :is(.topic-header,.topic-subnav) {visibility:hidden;}
+.halloween :is(.topic-header,.topic-subnav):focus-within {opacity:1;}
+.eve-opening {
+  position:relative;isolation:isolate;background:#070707;
+}
+.eve-opening[data-scroll-reveal] {height:180vh;height:180svh;}
+.eve-scene {
+  position:sticky;top:0;height:100vh;height:100dvh;isolation:isolate;overflow:hidden;
+}
+.eve-sky,.eve-frame {position:absolute;inset:0;}
+.eve-sky {
+  background:#090909 url('assets/halloween-bishops.webp') center 47% / 100% 170% no-repeat;
+  filter:blur(28px) brightness(.66);transform:scale(1.09);
+}
+/* Crop the photograph and the atmosphere as one exposure on every screen. */
+.eve-frame {container-type:size;overflow:hidden;--crop-y:47%;}
+.eve-negative {
+  position:absolute;left:50%;top:var(--crop-y);
+  width:max(100cqw,56.25cqh);aspect-ratio:9/16;transform:translate(-50%,calc(-1 * var(--crop-y)));
+}
+.eve-cover,.eve-air {position:absolute;inset:0;width:100%;height:100%;}
+.eve-cover {display:block;}
+.eve-air {pointer-events:none;mask:url('assets/halloween-sky-mask.png') center / 100% 100% no-repeat;}
+.eve-air i {position:absolute;left:0;right:0;overflow:hidden;mask-image:linear-gradient(transparent,#000 37% 65%,transparent);}
+.eve-high-cloud {top:19%;height:19%;opacity:.16;}
+.eve-cloud {top:29%;height:16%;opacity:.23;}
+.eve-fog {top:40%;height:24%;opacity:.25;}
+.eve-air i::before {
+  content:'';position:absolute;inset:0 auto 0 0;width:200%;
+  background:url('assets/halloween-mist.webp') repeat-x 0 50% / 50% 100%;
+  animation:eve-east 46s linear infinite;
+}
+.eve-air .eve-high-cloud::before {animation-duration:61s;animation-delay:-17s;}
+.eve-air .eve-fog::before {animation-duration:32s;animation-delay:-11s;}
+/* Closest to the viewer, this thin veil also crosses the sides of the desktop crop. */
+.eve-front-fog {
+  position:absolute;inset:0;pointer-events:none;overflow:hidden;opacity:.105;
+  mask-image:linear-gradient(transparent,#000 32% 87%,transparent);
+}
+.eve-front-fog::before {
+  content:'';position:absolute;inset:0 -50%;
+  background:url('assets/halloween-mist.webp') 0 55% / 50% 100% repeat-x;
+  animation:eve-front-drift 36s linear infinite;
+}
+@keyframes eve-front-drift {from{transform:translateX(-25%)}to{transform:translateX(25%)}}
+/* Dim the photographed bulbs themselves. Positions are in the uncropped source image. */
+.eve-lamps {
+  position:absolute;inset:0;pointer-events:none;
+}
+.eve-lamps {background:radial-gradient(ellipse 2.7% 1.45% at 30.6% 49.8%,#19130f 0%,transparent 100%),
+  radial-gradient(ellipse 2.8% 1.75% at 46.7% 59%,#19130f 0%,transparent 100%);
+  animation:eve-lamp-dip 6.7s ease-in-out infinite;}
+.eve-negative::after {
+  content:'';pointer-events:none;position:absolute;inset:0;
+  background:radial-gradient(ellipse 2.6% 1.7% at 69.8% 58.7%,#19130f 0%,transparent 100%);
+  animation:eve-lamp-dip 9.3s -3.7s ease-in-out infinite;
+}
+@keyframes eve-lamp-dip {0%,59%,74%,100%{opacity:0} 64%{opacity:.45} 68%{opacity:.09} 71%{opacity:.24}}
+.eve-opening-caption {
+  position:absolute;bottom:8%;left:0;width:100%;text-align:center;pointer-events:none;
+}
+.eve-opening-title {
+  color:#fff7ec;text-transform:uppercase;font:800 clamp(2.1rem,10.6vw,10rem)/1 var(--display);
+  letter-spacing:-.015em;text-shadow:0 2px 5px #09060899,0 4px 24px #050406bc;
+  margin:0;opacity:var(--eve-title-opacity,1);transform:translateY(var(--eve-title-offset,0px));
+}
+@keyframes eve-east {from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@media(min-aspect-ratio:1/1){
+  .eve-frame {--crop-y:29%;width:min(100%,101dvh);margin:auto;mask-image:linear-gradient(90deg,transparent,#000 15% 85%,transparent);}
+}
+@media(prefers-reduced-motion:reduce){
+  .eve-air i::before,.eve-front-fog::before,.eve-lamps,.eve-negative::after {animation:none;}
+  .eve-lamps,.eve-negative::after {opacity:0;}
+  .eve-opening-title {transform:none;}
+}
+.eve-chapter-open :is(.eve-air i,.eve-front-fog)::before,
+.eve-chapter-open .eve-lamps,.eve-chapter-open .eve-negative::after {animation-play-state:paused;}
+.eve-date {
+  display:block;margin:.65rem 0 0;color:#f7efe5;
+  font:600 clamp(.82rem,1.1vw,1rem)/1.5 'Inter',sans-serif;
+  text-transform:uppercase;letter-spacing:.16em;text-shadow:0 1px 5px #000,0 2px 12px #0009;
+  opacity:var(--eve-date-opacity,1);
+}
+.halloween [data-holiday-gallery="halloween"] {display: block; max-width: none; padding: 0; margin: 0;}
+.eve-spread {--line: #89807c; color: var(--ink); background: var(--paper); padding: clamp(3rem, 7vw, 8rem) 0; position: relative;}
+.eve-layout {
+  display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(1.5rem, 8vw, 9rem);
+  align-items: center; max-width: 78rem; width: 84%; margin: auto;
+}
+.eve-print {position: relative; width: min(100%, 21rem); justify-self: center; isolation: isolate;}
+.eve-print::before {
+  content: ''; z-index: -1; position: absolute; inset: 7% -12% 8% -10%;
+  border-radius: 50%; background: radial-gradient(ellipse at 18% 64%, #484051 0%,#2a252d 49%,#19171c 79%);
+}
+.eve-print::after {
+  content: ''; position: absolute; z-index: -2; inset: 3% -15%; border: 1px solid #8b7f8d88;
+  border-radius: 50%; transform: rotate(18deg);
+}
+.halloween .eve-print .photo {
+  max-width: none; display: block; position: relative; background: #d8d0c4; padding: .52rem .52rem 1.4rem;
+  box-shadow: 0 .65rem 1.6rem #17131e30; transform: rotate(-4deg); transition: transform .4s ease;
+}
+.halloween .eve-print .photo img {display: block; width: 100%; height: auto; max-height: none; border: 1px solid #241f252f;}
+.eve-type h2 {font: 500 clamp(3.2rem, 6.7vw, 7.5rem)/.97 var(--display); letter-spacing: -.065em; color: inherit; margin: 1.8rem 0;}
+.eve-type em {font-weight: inherit;}
+.eve-phases {display: block; width: 3.6rem; height: .68rem; color: #8c7892;
+  background: radial-gradient(circle at 9% 50%,currentColor 0 8%, transparent 9%),
+    radial-gradient(circle at 44% 28%,var(--paper) 0 13%,transparent 14%),radial-gradient(circle at 46% 50%,currentColor 0 15%,transparent 16%),
+    radial-gradient(circle at 83% 15%,var(--paper) 0 14%,transparent 15%),radial-gradient(circle at 84% 50%,currentColor 0 16%,transparent 17%);}
+.eve-strip {
+  width: min(84%,78rem); margin: clamp(2.2rem,5vw,4.5rem) auto 0; padding: .85rem .3rem 1rem;
+  display: flex; gap: clamp(.65rem,1.5vw,1.4rem); overflow-x: auto; scroll-snap-type: x proximity;
+  scrollbar-width: thin; scrollbar-color: var(--line) transparent; border-top: 1px solid color-mix(in srgb,var(--line) 40%,transparent);
+}
+.halloween .eve-strip .photo {flex: 0 0 clamp(7.8rem,14vw,14rem); width: auto; scroll-snap-align: start; align-self: center;}
+.halloween .eve-strip .photo img {width: 100%; height: clamp(8rem,14vw,14rem); object-fit: cover; object-position: center 35%; display: block;}
+.eve-candy {--paper: #121114; --line: #b0a1b1; color: #eeeae3; background: radial-gradient(ellipse at 74% 60%, #2c2532 0%, var(--ink) 48%);}
+.eve-candy::before,.eve-baskets::before {content: ''; position: absolute; inset: -1px 0 auto; height: clamp(1rem,3vw,3rem); background: #ece8e2; clip-path: polygon(0 0,100% 0,100% 75%,65% 30%,12% 96%,0 80%);}
+.eve-candy .eve-print {grid-column: 2; grid-row: 1; width: min(96%,24rem);}
+.eve-candy .eve-print::before {background: #453a4d; inset: 8% -5% -2% 7%; border-radius: 45% 45% 0 0;}
+.eve-candy .eve-print::after {border-radius: 45% 45% 0 0; transform: none; inset: -3% 4% 4% -4%;}
+.halloween .eve-candy .eve-print .photo {transform: none; padding: 0; border-radius: 48% 48% 0 0; overflow: hidden;}
+.eve-candy .eve-type {grid-row: 1; grid-column: 1; justify-self: center;}
+.eve-baskets::before {background: var(--ink); clip-path: polygon(0 0,100% 0,100% 40%,64% 87%,30% 30%,0 62%);}
+.halloween .eve-baskets .eve-print .photo {transform: rotate(3deg);}
+.eve-baskets .eve-print::before {background: #b6a7bc; inset: 17% -11% 13% -11%;}
+.eve-source {margin:0;text-align:center;padding:2.4rem 5% 0;}
+.halloween main>.memory-photos:empty {display:none;}
+@media (hover:hover) and (prefers-reduced-motion:no-preference) {
+  .halloween .eve-print .photo:hover {transform: translateY(-3px) rotate(0);}
+  .eve-strip .photo {transition: opacity .2s;} .eve-strip .photo:hover {opacity: .84;}
+}
+@media (max-width:600px) {
+  body.halloween {--header-size:var(--mobile-header-height,103px);}
+  .halloween .topic-header {margin-bottom: 0;}
+  .eve-layout {width: 85%; gap: 6vw; grid-template-columns: minmax(0,1fr) minmax(0,.95fr);}
+  .eve-type h2 {font-size:clamp(1.85rem,7.6vw,3.25rem); margin: .8rem 0;}
+  .eve-type {min-width: 0;}
+  .halloween .eve-print .photo {padding: .27rem .27rem .72rem;}
+  .eve-strip {width: 88%;}
+}
+@media (prefers-reduced-motion:reduce) {html:has(.eve-opening){scroll-behavior:auto;} .halloween .eve-print .photo {transition: none;}}
+
+/* Short photo essays below each Halloween opener. */
+.halloween .eve-intro {
+  max-width: 32ch; margin: 0; font: 400 clamp(1rem,1.3vw,1.18rem)/1.55 Georgia,serif;
+}
+.halloween .eve-story {
+  width: min(84%,70rem); margin: clamp(3rem,7vw,7rem) auto 0;
+  border-top: 1px solid color-mix(in srgb,var(--line) 50%,transparent);
+}
+.halloween .eve-story h3 {
+  color: inherit; margin: 1rem 0 1.5rem; font: italic 500 clamp(2rem,4vw,3.6rem)/1.1 var(--display);
+  letter-spacing: -.045em; text-transform: none;
+}
+.halloween .eve-frames {display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: clamp(.9rem,2.8vw,2.5rem); align-items: start;}
+.halloween .eve-frames figure {min-width: 0; margin: 0;}
+.halloween .eve-frames .photo {display: block; width: 100%; max-width: none; padding: 0; background: transparent;}
+.halloween .eve-frames .photo img {display: block; width: 100%; height: auto; max-height: none;}
+.halloween .eve-frames figcaption {max-width: 38ch; margin: .65rem 0 0; font: 400 1rem/1.45 Georgia,serif;}
+.halloween .eve-costumes .eve-story {max-width: 56rem;}
+.halloween .eve-costumes .eve-frames {grid-template-columns: minmax(0,.78fr) minmax(0,1fr); align-items: center;}
+.halloween .eve-candy .eve-story {max-width: 51rem;}
+.halloween .eve-candy .eve-frames {column-gap: clamp(.75rem,1.8vw,1.5rem);}
+.halloween .eve-baskets .eve-frames {grid-template-columns: repeat(4,minmax(0,1fr));}
+.halloween .eve-baskets figcaption {font-family: var(--display); font-size: clamp(1rem,1.5vw,1.4rem);}
+.halloween .eve-frames .photo:focus-visible {outline: 2px solid currentColor; outline-offset: 3px; color: inherit;}
+@media (max-width:650px) {
+  .halloween .eve-story {width: 88%;}
+  .halloween .eve-baskets .eve-frames {grid-template-columns: repeat(2,minmax(0,1fr)); row-gap: 1.5rem;}
+}
+@media (max-width:600px) {
+  .halloween .eve-layout {row-gap: 0;}
+  .halloween .eve-type {display: contents;}
+  .halloween .eve-type .eve-phases {display: none;}
+  .halloween .eve-type h2 {grid-column: 2; grid-row: 1;}
+  .halloween .eve-candy .eve-type h2 {grid-column: 1;}
+  .halloween .eve-intro {grid-column: 1/-1; margin: 1.8rem auto 0; max-width: 40ch;}
+  .halloween .eve-frames figcaption {font-size: .94rem;}
+}
+
+/* Visitor costumes have their own dark spread, separate from the crew. */
+.halloween .eve-visitors {background: radial-gradient(ellipse at 85% 20%,#2c2532, #121114 65%); --line:#b0a1b1; color:#eeeae3;}
+.halloween .eve-visitors .eve-type h2 {color:inherit;}
+.halloween .eve-visitors .eve-print {width:100%; max-width:30rem;}
+.halloween .eve-visitors .eve-frames {grid-template-columns:repeat(3,minmax(0,1fr)); row-gap:2rem;}
+@media (max-width:650px) {
+  .halloween .eve-visitors .eve-frames {grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+
+/* The opening photograph dissolves into the first spread. */
+.eve-scene::after{content:'';position:absolute;inset:45% 0 0;pointer-events:none;z-index:1;background:linear-gradient(transparent,#0009 55%,#000 100%)}
+.eve-opening-caption{z-index:2}
+.eve-opening{background:#000}
+.eve-opening[data-scroll-reveal] ~ main .eve-nav-entry::after{height:32px}
+
+/* Costumes, visitors, candy, then gifts: four distinct photographic chapters. */
+.halloween .eve-spread{padding:clamp(64px,9vw,120px) 0;overflow:hidden}
+.halloween .eve-costumes{--paper:#000;--line:#796b80;background:#000;color:#eee9e2}
+.halloween .eve-costumes .eve-print::before{background:radial-gradient(ellipse,#45394b,transparent 70%)}
+.halloween .eve-costumes .eve-print::after{border-color:#b9a1c955}
+.halloween .eve-costumes .eve-print .photo{background:#ded4c8;transform:rotate(-3deg)}
+.halloween .eve-story{border:0;margin-top:clamp(36px,6vw,72px)}
+.halloween .eve-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible;border:0;gap:24px;padding:0;margin-top:28px}
+.halloween .eve-strip .photo{width:100%;min-width:0;align-self:start}
+.halloween .eve-strip .photo img{height:auto;max-height:none;object-fit:contain}
+.halloween .eve-visitors{--paper:#201725;--line:#97869f;background:#201725;color:#eee5ee}
+.halloween .eve-visitors::before{content:'';position:absolute;inset:0 0 auto;height:70px;background:linear-gradient(#000,transparent);pointer-events:none}
+.halloween .eve-visitors .eve-print::before,.halloween .eve-visitors .eve-print::after{display:none}
+.halloween .eve-visitors .eve-print .photo{padding:0;transform:none;border-radius:48% 48% 6px 6px;overflow:hidden;background:transparent}
+.halloween .eve-visitors .eve-frames .photo{border:1px solid #ac8bb64d;padding:6px;background:#ffffff05}
+.halloween .eve-visitors .eve-frames figure:nth-child(3n+2){margin-top:28px}
+.halloween .eve-candy{--paper:#d0a069;--line:#60472f;background:#d0a069;color:#251c18}
+.halloween .eve-candy::before{height:30px;background:#201725;clip-path:polygon(0 0,100% 0,100% 25%,90% 65%,80% 25%,70% 65%,60% 25%,50% 65%,40% 25%,30% 65%,20% 25%,10% 65%,0 25%)}
+.halloween .eve-candy .eve-print::before{background:#a3613c}
+.halloween .eve-candy .eve-print::after{border-color:#684a37}
+.halloween .eve-candy .eve-frames{gap:18px;align-items:center}
+.halloween .eve-candy .eve-frames figure:last-child{transform:rotate(2deg)}
+.halloween .eve-baskets{--paper:#eee5d6;--line:#8c7256;background-color:#eee5d6;background-image:radial-gradient(#8b633b18 .8px,transparent .8px);background-size:12px 12px;color:#30251c}
+.halloween .eve-baskets::before{height:36px;background:#d0a069;clip-path:polygon(0 0,100% 0,100% 35%,85% 70%,70% 40%,50% 80%,30% 40%,15% 65%,0 35%)}
+.halloween .eve-baskets .eve-print::before{background:#be9669}
+.halloween .eve-baskets .eve-print::after{border-color:#96775066}
+.halloween .eve-baskets .eve-strip{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.halloween .eve-baskets .eve-strip .photo{padding:7px;background:#fffcf5;box-shadow:0 5px 14px #38241414}
+.halloween .eve-baskets .eve-strip .photo:nth-child(3n+2){transform:rotate(2deg)}
+@media(max-width:650px){
+ .halloween .eve-strip,.halloween .eve-baskets .eve-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+ .halloween .eve-visitors .eve-frames figure:nth-child(3n+2){margin-top:0}
+ .halloween .eve-visitors .eve-frames figure:nth-child(even){margin-top:24px}
+ .halloween .eve-visitors .eve-layout{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+ .halloween .eve-visitors .eve-type h2{font-size:clamp(26px,7vw,44px)}
+}
+
+/* One frame language per chapter, shared by featured and gallery photos. */
+.halloween .eve-spread .photo {box-sizing:border-box;position:relative;overflow:visible;}
+.halloween .eve-spread .photo img {border:0;}
+/* Crew: instant-print borders with a deeper lower margin. */
+.halloween .eve-spread.eve-costumes .photo {
+ padding:clamp(5px,1vw,10px) clamp(5px,1vw,10px) clamp(16px,2.4vw,26px);
+ border:1px solid #f5e9d5;border-radius:2px;background:#e9dfce;
+ box-shadow:0 5px 16px #0006;
+}
+/* Visitors: violet mats with clipped outer corners, preserving the full image. */
+.halloween .eve-spread.eve-visitors .photo {
+ padding:clamp(9px,1.5vw,16px);border:0;border-radius:0;background:#96819e;
+ clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px),0 12px);
+ box-shadow:inset 0 0 0 4px #3e2b49;transform:none;
+}
+/* Candy: a narrow striped wrapper around a dark inner rim. */
+.halloween .eve-spread.eve-candy .photo {
+ padding:clamp(7px,1.2vw,12px);border:0;border-radius:8px;
+ background:repeating-linear-gradient(135deg,#3d2922 0 6px,#e9b26f 6px 12px);
+ box-shadow:0 4px 12px #472b2426;overflow:visible;
+}
+.halloween .eve-spread.eve-candy .photo img {outline:3px solid #3d2922;border-radius:2px;}
+/* Baskets: warm gift-card mats with a fine stitched outline. */
+.halloween .eve-spread.eve-baskets .photo {
+ padding:clamp(10px,1.5vw,16px);border:1px solid #b69062;border-radius:10px;
+ background:#fffaef;box-shadow:0 4px 12px #38241418;
+}
+.halloween .eve-spread.eve-baskets .photo::after {
+ content:'';position:absolute;inset:4px;border:1px dashed #b69062;border-radius:6px;pointer-events:none;
+}
+.halloween .eve-spread .photo:focus-visible {outline:3px solid #e7ba60;outline-offset:4px;}
+.halloween .eve-spread.eve-visitors .photo:focus-visible {outline:0;background:#e7ba60;}
+@media(min-width:651px){.halloween .eve-baskets .eve-frames{grid-template-columns:repeat(3,minmax(0,1fr));}}

@@ -1,0 +1,27 @@
+/* Local to the honoree page. Frames inherit each section's existing material and colors. */
+.spotlight-page .spotlight-vibe .spotlight-photos{display:block;max-width:680px}
+.spotlight-page .honoree-carousel{width:100%;min-width:0;position:relative}
+.spotlight-page .spotlight-vibe .honoree-stage.spotlight-placeholder{display:block;width:100%;max-width:none;min-height:0;aspect-ratio:auto;height:clamp(320px,64svh,650px);margin:0;--tilt:0deg}
+.spotlight-page .honoree-stage{position:relative;isolation:isolate;touch-action:pan-y;user-select:none}
+.spotlight-page .honoree-stage .honoree-slide{position:absolute;inset:0;width:100%;height:100%;max-width:none;margin:0;padding:0;border:0;box-shadow:none;transform:none;overflow:hidden;border-radius:inherit;background:transparent}
+.spotlight-page .honoree-stage .honoree-slide[hidden]{display:none}
+.spotlight-page .honoree-stage .honoree-slide img{display:block;position:static;width:100%;height:100%;max-height:none;aspect-ratio:auto;object-fit:contain;object-position:center;filter:none;border-radius:inherit;pointer-events:none}
+.spotlight-page .honoree-controls{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:28px;color:inherit}
+.spotlight-page .honoree-controls button{min-height:44px;min-width:72px;padding:10px 14px;border:1px solid currentColor;border-radius:999px;background:transparent;color:inherit;font:500 14px/1.2 'Inter',Arial,sans-serif}
+.spotlight-page .honoree-controls button:hover{background:color-mix(in srgb,currentColor 10%,transparent)}
+.spotlight-page .honoree-count{min-width:4em;text-align:center;font:14px/1.2 'Inter',Arial,sans-serif;font-variant-numeric:tabular-nums}
+.spotlight-page .legacy-person .legacy-carousel-figure{max-width:620px;min-width:0}
+.spotlight-page .legacy-person .honoree-stage{height:clamp(330px,60svh,620px);padding:0;background:#fafaf7;border:10px solid #fafaf7;border-bottom-width:35px;box-shadow:12px 18px 0 #18181818}
+.spotlight-page .legacy-roberto .honoree-stage{background:#080808;border:14px solid #080808;outline:1px solid #888;box-shadow:0 0 0 7px #171717,0 0 0 8px #555}
+@media(max-width:600px){.spotlight-page .spotlight-vibe .honoree-stage.spotlight-placeholder,.spotlight-page .legacy-person .honoree-stage{height:clamp(300px,55svh,520px)}.spotlight-page .honoree-controls{gap:12px;margin-top:24px}.spotlight-page .legacy-person .legacy-carousel-figure{max-width:100%}}
+
+/* The frame follows each photograph's intrinsic proportions, within the viewport. */
+.spotlight-page .spotlight-vibe .honoree-stage.spotlight-placeholder,.spotlight-page .legacy-person .honoree-stage{margin-left:auto;margin-right:auto;box-sizing:border-box}
+
+/* Award portraits sit beside the carousel, in the honoree’s existing frame. */
+.spotlight-page .spotlight-vibe .spotlight-photos.with-award{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);max-width:1060px;gap:clamp(28px,5vw,70px);align-items:center}
+.spotlight-page .honoree-award{min-width:0;width:100%;margin:0;align-self:center}
+.spotlight-page .spotlight-vibe .honoree-award .award-photo{display:block;width:100%;max-width:none;min-height:0;aspect-ratio:auto;margin:0;padding:0;overflow:visible;--tilt:3deg}
+.spotlight-page .honoree-award .award-photo img{position:static;display:block;width:100%;height:auto;max-height:none;aspect-ratio:auto;object-fit:contain;filter:none;border-radius:inherit}
+.spotlight-page .honoree-award figcaption{margin:26px 0 0;text-align:center;font:500 9px/1.5 'Inter',Arial,sans-serif;letter-spacing:2px;color:var(--ink)}
+@media(max-width:600px){.spotlight-page .spotlight-vibe .spotlight-photos.with-award{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:20px;max-width:520px}.spotlight-page .with-award .honoree-controls{gap:5px;flex-wrap:wrap;margin-top:22px}.spotlight-page .with-award .honoree-controls button{min-width:44px;padding:8px;font-size:11px}.spotlight-page .with-award .honoree-count{min-width:3em;font-size:11px}.spotlight-page .honoree-award figcaption{font-size:8px;letter-spacing:1px;margin-top:18px}}

@@ -1,0 +1,23 @@
+.award-reveal-stage{position:relative;width:100%;margin:30px auto 0;overflow:hidden}
+.award-reveal-trigger{position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;width:min(100%,540px);min-height:300px;margin:auto;padding:36px 24px;border:1px solid #b497694d;border-radius:8px 8px 36px 8px;color:#f9efd9;background:#34252a;box-shadow:0 14px 35px #291d2418;cursor:pointer;overflow:hidden;-webkit-tap-highlight-color:transparent}
+.award-reveal-trigger::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(150deg,transparent 49.7%,#c3a57122 50%,transparent 50.3%),linear-gradient(210deg,transparent 49.7%,#c3a57122 50%,transparent 50.3%),repeating-linear-gradient(45deg,#ffffff03 0 1px,transparent 1px 24px);transition:opacity .3s}
+.award-reveal-trigger::after{content:"";position:absolute;inset:12px;border:1px solid #d4b77d33;border-radius:3px 3px 25px 3px;pointer-events:none}
+.award-seal{display:grid;place-items:center;width:76px;height:76px;border-radius:50%;border:1px solid #f5dc9d99;outline:1px solid #c4a76f55;outline-offset:5px;background:#b69a60;color:#302229;box-shadow:0 7px 22px #0003;font:400 40px/1 'Notable',serif;transition:transform .3s}
+.award-reveal-label{font:500 16px/1.4 Inter,Arial,sans-serif;letter-spacing:.04em}
+.award-beats{display:flex;gap:7px;height:7px}
+.award-beats i{display:block;width:4px;height:4px;border-radius:50%;background:#d3b879;opacity:.45}
+.award-reveal-trigger:focus-visible{outline:3px solid #b18c43;outline-offset:4px}
+@media(hover:hover){.award-reveal-trigger:hover .award-seal{transform:rotate(-6deg) scale(1.04)}}
+.is-opening .award-seal{animation:award-drumroll .85s ease-in-out both}
+.is-opening .award-beats i{animation:award-beat .3s ease-in-out infinite alternate}
+.is-opening .award-beats i:nth-child(2){animation-delay:.1s}.is-opening .award-beats i:nth-child(3){animation-delay:.2s}
+.award-reveal-results:focus{outline:none}
+.is-revealed .award-winners{animation:award-unveil .7s cubic-bezier(.22,1,.36,1) both}
+.is-revealed .runners{animation:award-unveil .7s .18s cubic-bezier(.22,1,.36,1) both}
+.award-reveal-stage [hidden]{display:none!important}
+.award-reveal-announcement{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@keyframes award-drumroll{0%,100%{transform:scale(1) rotate(0)}20%{transform:scale(.94) rotate(-5deg)}40%{transform:scale(1.03) rotate(5deg)}55%{transform:scale(.98) rotate(-4deg)}70%{transform:scale(1.06) rotate(3deg)}85%{transform:scale(1.1) rotate(-2deg)}}
+@keyframes award-beat{to{opacity:1;transform:translateY(-4px)}}
+@keyframes award-unveil{from{opacity:0;transform:translateY(22px) scale(.98);filter:blur(5px)}to{opacity:1;transform:none;filter:blur(0)}}
+@media(max-width:600px){.award-reveal-stage{margin-top:24px}.award-reveal-trigger{min-height:260px;gap:18px}.award-seal{width:68px;height:68px;font-size:36px}}
+@media(prefers-reduced-motion:reduce){.award-reveal-stage *{animation:none!important;transition:none!important}}
