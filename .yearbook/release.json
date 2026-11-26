@@ -1,13 +1,13 @@
 {
   "project": "Golden Grain Yearbook 2026",
-  "release": "patch-001",
+  "release": "patch-002",
   "checkpoint_date": "2026-11-26",
-  "github_status": "Patch 001 prepared for manual application; GitHub deployment not confirmed",
+  "github_status": "Patch 002 prepared for manual application; GitHub deployment not confirmed",
   "github_repo": "omarmachucabell/golden-grain-yearbook-2026",
   "source_commit": "5f587584f2f83555490d5b30ebd209844ab79192",
   "sites_version": 206,
-  "files": null,
-  "unpacked_bytes": null,
+  "files": 902,
+  "unpacked_bytes": 899911424,
   "baseline_archives": [
     {
       "name": "Golden-Grain-2026-GitHub-Part-1.zip",
@@ -22,11 +22,11 @@
       "bytes": 436778021
     }
   ],
-  "latest_delivered_patch": "patch-001",
+  "latest_delivered_patch": "patch-002",
   "latest_confirmed_applied_patch": null,
   "sync": "Manual only; Sites changes do not sync to GitHub",
-  "required_base": "baseline-000",
-  "change": "Remove sofiasvisitfromcoworker.JPG from Photo Album and its metadata",
+  "required_base": "patch-001",
+  "change": "Add 20 Kolby Roe photos, curated album placement, and linked per-photo credit",
   "baseline_files": 875,
   "baseline_unpacked_bytes": 894024430
 }

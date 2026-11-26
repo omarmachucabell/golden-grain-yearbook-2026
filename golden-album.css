@@ -200,6 +200,13 @@
 #album-viewer .av-timestamp{position:absolute;right:max(14px,env(safe-area-inset-right));top:calc(max(14px,env(safe-area-inset-top)) + 58px);max-width:calc(100% - 28px);padding:8px 12px;border-radius:5px;background:#100f0ed9;color:#f7f5ee;font:400 14px/1.4 Inter,Arial,sans-serif;letter-spacing:.01em;pointer-events:none}
 #album-viewer .av-timestamp[hidden]{display:none}
 
+/* Credit belongs to the displayed photo, alongside its caption. */
+#album-viewer .viewer-credit{display:block;width:fit-content;max-width:100%;margin:.25rem auto 0;padding:.35rem .5rem;color:#dec197;font:400 .875rem/1.4 Inter,Arial,sans-serif;text-decoration:underline;text-underline-offset:.2em;pointer-events:auto}
+#album-viewer .viewer-credit:focus-visible{outline:2px solid #dec197;outline-offset:2px;border-radius:2px}
+#album-viewer .viewer-credit:hover{color:#fff2d6}
+#album-viewer .viewer-credit[hidden]{display:none}
+#album-viewer.has-credit img{padding-bottom:190px}
+
 /* An editorial browse before the searchable archive. */
 .season-highlights{max-width:1120px;margin:auto;padding:48px 6% 0;color:#f3eee4}
 .highlights-heading{margin-bottom:48px;max-width:650px}

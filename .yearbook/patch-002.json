@@ -1,0 +1,209 @@
+{
+  "patch": "patch-002",
+  "required_base": "patch-001",
+  "date": "2026-11-26",
+  "changes": [
+    {
+      "path": ".yearbook/patch-002-photos.json",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "8a866de203707c87230c5ebc9b591bb2cfb463b221aa38cb89d6f93609af9aa7",
+      "bytes": 8578
+    },
+    {
+      "path": ".yearbook/release.json",
+      "operation": "replace",
+      "old_sha256": "2b7a338cc995a9ecd6b7bddfb3faba7faf4ca25029cf3786242e0a4646be81b8",
+      "new_sha256": "ea67e6029fe029080d4a26098cda18f333441dad61ab5e1a7c383f5e7e4823d5",
+      "bytes": 1201
+    },
+    {
+      "path": "PATCH-002-README.md",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "b6861b79184cb1f35c646e6e928e807a85c3349a1b3023650db910abf2652943",
+      "bytes": 2648
+    },
+    {
+      "path": "album-capture-dates.json",
+      "operation": "replace",
+      "old_sha256": "8088cbc90dbdbb8f30a63878a15685c994a80e8f32b81bda835bee51cf3c1b92",
+      "new_sha256": "34de31a5ea0983b1fbfb3ac3bf8fc3cc1015a919c353e4eb476be81a279b36ef",
+      "bytes": 85357
+    },
+    {
+      "path": "album-catalog.json",
+      "operation": "replace",
+      "old_sha256": "ade12868d6771c3cd0ca730cc7704aabd77623d0b3573ff3df41aae6b91bf9b6",
+      "new_sha256": "bb0987c9e18ff9257e62abd57b98ceb4a318f717e11f1e0bcb7b0cb1b0220b00",
+      "bytes": 252302
+    },
+    {
+      "path": "assets/kolby-roe/connor-last-ride.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "08077b406713f90e4bbfe4ea1adfa034b8a45355a5bb618a01df62a6ff37775b",
+      "bytes": 160882
+    },
+    {
+      "path": "assets/kolby-roe/guests-afternoon-sunlight.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "2eb2c41c23bad740e4adfe01dfd5bfc7e97519b8ec9b7a1038f9b253234b0238",
+      "bytes": 223248
+    },
+    {
+      "path": "assets/kolby-roe/guests-riding-daylight.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "80750eff909960419c637be2564c1fa8240b3d195d785ad24818b00228d5085d",
+      "bytes": 472042
+    },
+    {
+      "path": "assets/kolby-roe/jonaven-last-ride.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "927a73718853e1069be273ade50db14c76848aa231508e39b329a8d8e17e17c7",
+      "bytes": 290006
+    },
+    {
+      "path": "assets/kolby-roe/judith-last-ride.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "47f51201ce41e73a9a870d842d6e9f87eda4fcde64564647258dda38221a07ff",
+      "bytes": 141438
+    },
+    {
+      "path": "assets/kolby-roe/last-day-crew-bottom.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "d693804613395b99a55a587f11d64f9294d157bf6bee6cb5ca8896e0139fb718",
+      "bytes": 377402
+    },
+    {
+      "path": "assets/kolby-roe/last-day-crew-lanes.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "10a87f1f4f0c7bd0e71be867615de27b5493757dc1cdde0236e377ed575d997f",
+      "bytes": 460662
+    },
+    {
+      "path": "assets/kolby-roe/last-day-crew-sign.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "c55e0dfaf765f5e24d8aef9dd8c9931c41e94a3fb4a03e19e381dccc8d540765",
+      "bytes": 503584
+    },
+    {
+      "path": "assets/kolby-roe/omar-last-ride-at-top.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "99469f277ed0fccfbbfc729c7f81adc1d400269c8d394e6786c5d577b5544769",
+      "bytes": 457300
+    },
+    {
+      "path": "assets/kolby-roe/omar-last-ride-down-slide.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "75fcacc7dbb1e3995108c19d4b275ddbc72cbec6e74ff332dfad5fe7d2be2172",
+      "bytes": 412152
+    },
+    {
+      "path": "assets/kolby-roe/raceway-and-sunflowers.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "e2316b380e574d593a39c4414f037270db5f4c05a3ce60c764c0e9a160bb0549",
+      "bytes": 365982
+    },
+    {
+      "path": "assets/kolby-roe/raceway-at-dusk.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "17476ba57656d7adf53caf8bcdf3d6a53279354f35d30e2ab9e44fc643b72760",
+      "bytes": 239940
+    },
+    {
+      "path": "assets/kolby-roe/raceway-fence-sunset.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "13d5dd5578d06eae1629a91ea49d7f5f2c2decd6b151901346c7490fc7107829",
+      "bytes": 172570
+    },
+    {
+      "path": "assets/kolby-roe/raceway-pink-sunset.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "5f633837a1d92f16bfe8ff439aab7b3bc4b427935289d94b4b97cf8cdd05cde3",
+      "bytes": 245926
+    },
+    {
+      "path": "assets/kolby-roe/raceway-through-flowers.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "3397ae11c01818b6a17e3a09b3ead99c95619b31c85be737d5a9a3bf6e8bde12",
+      "bytes": 335538
+    },
+    {
+      "path": "assets/kolby-roe/sunflower-whirl-and-raceway.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "3898b9c1557c6c5f165697119a36c92ac8a8f3acc10ba1ba39e2b3c5cb9b698e",
+      "bytes": 221076
+    },
+    {
+      "path": "assets/kolby-roe/sunset-above-entrance.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "32d948c6e36115aead39968b05612ec3a7668f35e76d483ef427775c60e19e77",
+      "bytes": 293670
+    },
+    {
+      "path": "assets/kolby-roe/trinity-at-the-top.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "c53a2a2bd9fb71ced8806afcc4a2562b2e93164a5a5d49ff33916f2bef142e2b",
+      "bytes": 259248
+    },
+    {
+      "path": "assets/kolby-roe/trinity-last-ride.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "0ddfffbeb2d693d1aafcb0bed81a9047e632db14e6ae7f7015014c083d08e0d0",
+      "bytes": 159010
+    },
+    {
+      "path": "assets/kolby-roe/trinity-loading-a-tube.webp",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "d2bd87bedb07c3c4ce866770360de69411e09ff0abf1c48b24ad93e8e0d8a87b",
+      "bytes": 206704
+    },
+    {
+      "path": "export-report.json",
+      "operation": "replace",
+      "old_sha256": "195b2c42164dcd1e11b293ad9a26f058c299a49fde5dd8ddea1c07b3fb1b582d",
+      "new_sha256": "98f9193cf585e701621035f10ae8978b17172fe8cb8e97fdb02c96fba97638c0",
+      "bytes": 516
+    },
+    {
+      "path": "golden-album.css",
+      "operation": "replace",
+      "old_sha256": "9b1144331fcfa068b1ac218c457bfa316d76cd8452aa96547d311cb1b9df589e",
+      "new_sha256": "f7998e555aa5dca3f0befdf4624cc0733c8862beeb02b7d0d4c982c27fe627d7",
+      "bytes": 21739
+    },
+    {
+      "path": "golden-album.js",
+      "operation": "replace",
+      "old_sha256": "ea6a667f17ccf4f1f3355fa2a54dd99e5dc0c43d520c9fd3a6a28e4c4660a401",
+      "new_sha256": "0a42eeacb98ceb16a053dd5443ef83fe52e171a3ec1314df867c3a8924b3b4f0",
+      "bytes": 18906
+    }
+  ],
+  "deletions": [],
+  "site_bytes_after_patch": 899911424,
+  "site_files_after_patch": 902,
+  "budget_bytes": 900000000,
+  "validation": "20 new files decoded; dimensions and ICC profiles preserved; all previous catalog records unchanged; all catalog media paths resolve; JavaScript syntax and targeted browser checks passed.",
+  "github_deployment": "Not performed; manual commit and push required."
+}

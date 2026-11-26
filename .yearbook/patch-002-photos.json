@@ -1,0 +1,288 @@
+[
+  {
+    "filename": "BPF-GOLDENGRAIN2-1.jpg",
+    "asset": "assets/kolby-roe/raceway-pink-sunset.webp",
+    "original_sha256": "6f93a045861ee77435140ed6c39c4057fcf64840aaea523f72c8a47b5c0a083d",
+    "original_bytes": 681107,
+    "web_bytes": 245926,
+    "width": 1365,
+    "height": 2048,
+    "quality": 80,
+    "topics": [
+      "beyond"
+    ],
+    "caption": "The Raceway under a pink sunset"
+  },
+  {
+    "filename": "BPF-GOLDENGRAIN2-2trinty.jpg",
+    "asset": "assets/kolby-roe/trinity-at-the-top.webp",
+    "original_sha256": "ef52ba48cdee8a1edb86f838b56f739463850858ada157212de3c67cb83552d5",
+    "original_bytes": 645299,
+    "web_bytes": 259248,
+    "width": 1365,
+    "height": 2048,
+    "quality": 80,
+    "topics": [
+      "raceway"
+    ],
+    "caption": "Trinity at the top as guests ride"
+  },
+  {
+    "filename": "BPF-GOLDENGRAIN2-5.jpg",
+    "asset": "assets/kolby-roe/guests-afternoon-sunlight.webp",
+    "original_sha256": "a48b3098beb66e746b15413cda97d86a493700d7c586c7bb300bd6e898e8242a",
+    "original_bytes": 592679,
+    "web_bytes": 223248,
+    "width": 1365,
+    "height": 2048,
+    "quality": 80,
+    "topics": [
+      "raceway"
+    ],
+    "caption": "Guests riding in afternoon sunlight"
+  },
+  {
+    "filename": "BPF-RACEWAY-WHIRL-3.jpg",
+    "asset": "assets/kolby-roe/raceway-at-dusk.webp",
+    "original_sha256": "187e176cd6bb5c4b77a157c58e1c0187fe0faa8e9271e6abb178be41eeb1bc0a",
+    "original_bytes": 617064,
+    "web_bytes": 239940,
+    "width": 2048,
+    "height": 1365,
+    "quality": 80,
+    "topics": [
+      "beyond"
+    ],
+    "caption": "The Raceway at dusk"
+  },
+  {
+    "filename": "BPF-RACEWAY-WHIRL-4.jpg",
+    "asset": "assets/kolby-roe/raceway-fence-sunset.webp",
+    "original_sha256": "42fb3976d25e0581d37bd9cfb55657a25ca8d0b985832ab8ae4349793b9a37c4",
+    "original_bytes": 470572,
+    "web_bytes": 172570,
+    "width": 1365,
+    "height": 2048,
+    "quality": 80,
+    "topics": [
+      "beyond"
+    ],
+    "caption": "Sunset beside the Raceway"
+  },
+  {
+    "filename": "BPF-RACEWAY-WHIRL-7.jpg",
+    "asset": "assets/kolby-roe/sunflower-whirl-and-raceway.webp",
+    "original_sha256": "099c5ae547831b65aaceb8ec166e6b10a64fbc4fc8877a7d6b1b5590655f18b7",
+    "original_bytes": 592385,
+    "web_bytes": 221076,
+    "width": 2048,
+    "height": 1365,
+    "quality": 80,
+    "topics": [
+      "beyond"
+    ],
+    "caption": "Sunflower Whirl with the Raceway behind it"
+  },
+  {
+    "filename": "BPF26-24.jpg",
+    "asset": "assets/kolby-roe/guests-riding-daylight.webp",
+    "original_sha256": "b4ba3b2a8264e3d21cc3799cb4eba5ebb085e10d8e5c2ae2e4eb607b15bb00cb",
+    "original_bytes": 981462,
+    "web_bytes": 472042,
+    "width": 1365,
+    "height": 2048,
+    "quality": 80,
+    "topics": [
+      "raceway"
+    ],
+    "caption": "Guests riding down the slides in daylight"
+  },
+  {
+    "filename": "BPF26-26.jpg",
+    "asset": "assets/kolby-roe/raceway-through-flowers.webp",
+    "original_sha256": "dae5dc5570c4103e7faa2ea4cd0405cf02fe138e04956b50be2085d6b6f44a47",
+    "original_bytes": 780003,
+    "web_bytes": 335538,
+    "width": 1365,
+    "height": 2048,
+    "quality": 80,
+    "topics": [
+      "beyond"
+    ],
+    "caption": "The Raceway seen through the flowers"
+  },
+  {
+    "filename": "GOLDENGRAIN-1.jpg",
+    "asset": "assets/kolby-roe/sunset-above-entrance.webp",
+    "original_sha256": "407137269313043bcd22e02d3c994c92872b66faa045f80cf2071a251ecf09e0",
+    "original_bytes": 736386,
+    "web_bytes": 293670,
+    "width": 1365,
+    "height": 2048,
+    "quality": 80,
+    "topics": [
+      "beyond"
+    ],
+    "caption": "Sunset above the Raceway entrance"
+  },
+  {
+    "filename": "GOLDENGRAIN-2trinity.jpg",
+    "asset": "assets/kolby-roe/trinity-loading-a-tube.webp",
+    "original_sha256": "debe24ebe7aea9ed336f0d87d23010d3d66e9ab6fc48a4b40701dfd7786f01c6",
+    "original_bytes": 593010,
+    "web_bytes": 206704,
+    "width": 1365,
+    "height": 2048,
+    "quality": 80,
+    "topics": [
+      "raceway"
+    ],
+    "caption": "Trinity sending a guest down the slide"
+  },
+  {
+    "filename": "GOLDENGRAIN-6.jpg",
+    "asset": "assets/kolby-roe/raceway-and-sunflowers.webp",
+    "original_sha256": "2de88831df83cc56983bb9d8b1c549b67237d849a5e0ab87aa80220740fd4f45",
+    "original_bytes": 793994,
+    "web_bytes": 365982,
+    "width": 2048,
+    "height": 1365,
+    "quality": 80,
+    "topics": [
+      "beyond"
+    ],
+    "caption": "The Raceway beside the sunflower field"
+  },
+  {
+    "filename": "connorridingdownracewaylasttime.jpg",
+    "asset": "assets/kolby-roe/connor-last-ride.webp",
+    "original_sha256": "bd30c2ef5dbe4421af679eff30c457e9737b42b9f1af68d5c37a4b032a41a2e4",
+    "original_bytes": 570568,
+    "web_bytes": 160882,
+    "width": 2048,
+    "height": 1365,
+    "quality": 80,
+    "topics": [
+      "together",
+      "raceway"
+    ],
+    "caption": "Connor on his last ride of the season"
+  },
+  {
+    "filename": "jonavenridingdownracewaylasttime.jpg",
+    "asset": "assets/kolby-roe/jonaven-last-ride.webp",
+    "original_sha256": "43af5c9cb84f844980c06d7408657ca66f4179647e90e69ec1c0205e04efdd67",
+    "original_bytes": 765185,
+    "web_bytes": 290006,
+    "width": 2048,
+    "height": 1365,
+    "quality": 80,
+    "topics": [
+      "together",
+      "raceway"
+    ],
+    "caption": "Jonaven on his last ride of the season"
+  },
+  {
+    "filename": "judithridingdownracewaylasttime.jpg",
+    "asset": "assets/kolby-roe/judith-last-ride.webp",
+    "original_sha256": "aa5d8b1f7a63ad01b940cf16ebce1a588a1af4f04bc35f6100551f7d57defac0",
+    "original_bytes": 514399,
+    "web_bytes": 141438,
+    "width": 2048,
+    "height": 1365,
+    "quality": 82,
+    "topics": [
+      "together",
+      "raceway"
+    ],
+    "caption": "Judith on her last ride of the season"
+  },
+  {
+    "filename": "lastdaygroupphotoatthebottomomarloganjonovanashleytrinityparisgianaguadalupealexaconnormaxaustinjacobrsophia.jpg",
+    "asset": "assets/kolby-roe/last-day-crew-bottom.webp",
+    "original_sha256": "9882595b7fd1a8c5b59792d4eeba28b69b5fa9cb5142b890e30d7e53ccb553c9",
+    "original_bytes": 826601,
+    "web_bytes": 377402,
+    "width": 2048,
+    "height": 1365,
+    "quality": 82,
+    "topics": [
+      "together"
+    ],
+    "caption": "Last-day crew at the bottom of the Raceway"
+  },
+  {
+    "filename": "lastdaygroupphotoinfrontofsignomarloganjonovanashleytrinityparisgianaguadalupealexaconnormaxaustinjacobrsophia.jpg",
+    "asset": "assets/kolby-roe/last-day-crew-sign.webp",
+    "original_sha256": "e2760499fd6c48b49a741db4a517e601af2505cb3465e5f821743b7ab444abd8",
+    "original_bytes": 995850,
+    "web_bytes": 503584,
+    "width": 2048,
+    "height": 1365,
+    "quality": 82,
+    "topics": [
+      "together"
+    ],
+    "caption": "Last-day crew in front of the Raceway sign"
+  },
+  {
+    "filename": "lastdaygroupphotoonlanes1to3omarloganjonovanashleytrinityparisgianaguadalupealexaconnormaxaustinjacobrsophia.jpg",
+    "asset": "assets/kolby-roe/last-day-crew-lanes.webp",
+    "original_sha256": "3a97002a224df51d1a799a8e73e8d9c1db113b21dcff3b712e9deea6284c2b21",
+    "original_bytes": 961598,
+    "web_bytes": 460662,
+    "width": 2048,
+    "height": 1365,
+    "quality": 82,
+    "topics": [
+      "together"
+    ],
+    "caption": "Last-day crew at lanes 1 through 3"
+  },
+  {
+    "filename": "omarridingdownracewaylastime2.jpg",
+    "asset": "assets/kolby-roe/omar-last-ride-at-top.webp",
+    "original_sha256": "e9a904f794c61821e5f96a85647ef005a0507b37a6e8e17adfdce807f8e7733f",
+    "original_bytes": 907582,
+    "web_bytes": 457300,
+    "width": 2048,
+    "height": 1365,
+    "quality": 82,
+    "topics": [
+      "together",
+      "raceway"
+    ],
+    "caption": "Omar at the top before his last ride"
+  },
+  {
+    "filename": "omarridingdownracewaylasttime.jpg",
+    "asset": "assets/kolby-roe/omar-last-ride-down-slide.webp",
+    "original_sha256": "479f5c5eaa98e76eeaece5f9c9b1b7011e284c56d306e94927672e2efc30572f",
+    "original_bytes": 888760,
+    "web_bytes": 412152,
+    "width": 2048,
+    "height": 1365,
+    "quality": 82,
+    "topics": [
+      "together",
+      "raceway"
+    ],
+    "caption": "Omar riding down the slide for the last time"
+  },
+  {
+    "filename": "trinityridingdownracewaylasttime.jpg",
+    "asset": "assets/kolby-roe/trinity-last-ride.webp",
+    "original_sha256": "6c2e7423f45dd01404599e569f027012080bddfcf7701ca1c363313065bc621c",
+    "original_bytes": 615765,
+    "web_bytes": 159010,
+    "width": 2048,
+    "height": 1365,
+    "quality": 80,
+    "topics": [
+      "together",
+      "raceway"
+    ],
+    "caption": "Trinity on her last ride of the season"
+  }
+]

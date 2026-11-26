@@ -9,6 +9,11 @@ const picture = viewer.querySelector('img');
 const viewerCaption = document.createElement('p');
 viewerCaption.className='viewer-caption';
 viewer.append(viewerCaption);
+const viewerCredit = document.createElement('a');
+viewerCredit.className='viewer-credit';
+viewerCredit.target='_blank';
+viewerCredit.rel='noopener noreferrer';
+viewerCredit.hidden=true;
 const timestamp = document.createElement('time');
 timestamp.className='av-timestamp';
 timestamp.hidden=true;
@@ -86,16 +91,17 @@ let activeMomentTitle="";
 viewer.addEventListener("close",()=>{activeMomentTitle="";});
 const highlightMoments=[
  ['Opening-day group photo','parissensamiajudithanthonyliambmaxgroupphotofirstdayopen'],
+ ['Last-day crew photos','^lastdaygroupphoto(atthebottom|infrontofsign|onlanes1to3)'],
  ['Stacks of tubes','anthonyandliambinawefromtoweroftubes|tubesstackedontopofjackson|liamwithtubesstackeduponhim'],
  ['Rainy-day photos','rainydaygroupphoto|rainydaycrewphoto|maxtrinityrainydaybottom'],
  ['Playing Roblox on break','anthonyabrielleliambplayingroblox|abrielleanthonyandliambonbreak'],
- ['Sunset views of the Raceway','sunsetcustomerscomingdown|sunsetphotoofraceway'],
+ ['Sunset views of the Raceway','sunsetcustomerscomingdown|sunsetphotoofraceway|^bpfgoldengrain21$|^bpfracewaywhirl[34]$|^goldengrain1$'],
  ['Asina’s trash-bag outfits','asinatrashbagoutfit|asinaintrashbag|asinatrashoutfit'],
  ['Omar, Trinity, and Judith','omartrinityandjudith|trinityomarandjudith|judithandtrinity'],
  ['Frog and possum sightings','departmentfrogpet|possuminthedapartmentundergrates'],
  ['Jackson and Tyler at the conveyor','jacksonandtylerconveyor|tylerjacksonconveyor'],
- ['Last rides of the season','lasttimegoingdownraceway'],
- ['Sunflower Whirl and sunflower cutting','daniellecatherineandmelissaonsunflowerwhirl|jacksononsunflowerwhirl|andreahsunflowercutting'],
+ ['Last rides of the season','lasttimegoingdownraceway|ridingdownracewaylast(?:time|ime)'],
+ ['Sunflower Whirl and sunflower cutting','daniellecatherineandmelissaonsunflowerwhirl|jacksononsunflowerwhirl|andreahsunflowercutting|^bpfracewaywhirl7$'],
  ['Michael visiting the farm','maxandmichealasguest|maxwithmichealasguest|michealasaguest'],
  ['Broken and dirty brooms','kylewithbrokenbroom|kylebrokenbroom|tylershowingoffdirtybroom'],
  ['Anthony and Liam B. at the conveyor at sunset','anthonyandliambworkingconveyorsunset'],
@@ -103,7 +109,8 @@ const highlightMoments=[
  ['Food and snack breaks','anthonyandliameating|gianaandsophiawithcaramelapples|sophiaeatingcookie'],
  ['Paraglider above the Raceway','paragliderflyingoverraceway'],
  ['Photos with Max','maxandabrielleselfie|omarandmaxhappy'],
- ['Flowers around the Raceway','flowerviewofraceway|racewayflowerview'],
+ ['Flowers around the Raceway','flowerviewofraceway|racewayflowerview|^bpf2626$|^goldengrain6$'],
+ ['Rides at the Raceway','^bpfgoldengrain2(?:2trinty|5)$|^bpf2624$|^goldengrain2trinity$'],
  ['Michael’s and Sy’Rae’s last-day photos','groupphotolastdayofmichael|michalelastdaygroupphoto|syraeslastdaywithmax'],
  ['A pumpkin and trash can on the slides','jacobrpushingpumpkin|elyassendingdowntrashcan'],
  ['Working at the bottom','loganrobertoandliamvworkingatthebottom|sensamiaworkingbottomwithjonovan'],
@@ -264,7 +271,21 @@ function show(){
  if(captured){timestamp.dateTime=captured.dateTime;timestamp.title=captured.title;}
  else {timestamp.removeAttribute('datetime');timestamp.removeAttribute('title');}
  picture.alt=p.caption || 'A memory from the season';
- viewer.querySelector('.viewer-caption').textContent=activeMomentTitle ? activeMomentTitle+' · '+picture.alt : picture.alt;
+ viewerCaption.textContent=activeMomentTitle ? activeMomentTitle+' · '+picture.alt : picture.alt;
+ let creditUrl;
+ try {creditUrl=new URL(p.credit?.url);} catch {}
+ const hasCredit=Boolean(p.credit?.name && creditUrl?.protocol==='https:');
+ viewer.classList.toggle('has-credit',hasCredit);
+ viewerCredit.hidden=!hasCredit;
+ if(hasCredit){
+  viewerCredit.href=creditUrl.href;
+  viewerCredit.textContent='Photos by '+p.credit.name;
+  viewerCredit.setAttribute('aria-label','Photos by '+p.credit.name+' — photographer website (opens in a new tab)');
+  viewerCaption.append(viewerCredit);
+ } else {
+  viewerCredit.removeAttribute('href');
+  viewerCredit.textContent='';
+ }
  // Use the same display-quality copy in the viewer and gallery.
  picture.src = p.preview || p.src;
  viewer.querySelector('output').textContent=(selected+1)+' / '+current.length;
@@ -279,8 +300,10 @@ window.addEventListener('hashchange',()=>{if(viewer.open)viewer.close();render()
 function add(p){
  if(holidaySources.has(p.src))return false;
  const existing=library.get(p.src);
- const people=namedPeople(p), topicIds=tags(p.name);
- const search=normalize([p.name,p.caption || '',...people].join(' '));
+ const people=[...new Set([...namedPeople(p),...(Array.isArray(p.people)?p.people.filter(name=>roster.includes(name)):[])])];
+ const assignedTopics=Array.isArray(p.topics)?p.topics.filter(id=>chapters.some(chapter=>chapter.id===id)):[];
+ const topicIds=assignedTopics.length?assignedTopics:tags(p.name);
+ const search=normalize([p.name,p.caption || '',p.credit?.name || '',...people].join(' '));
  if(existing){
   people.forEach(n=>existing.people.add(n));
   topicIds.forEach(t=>existing.tags.add(t));
