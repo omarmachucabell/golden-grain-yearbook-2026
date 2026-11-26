@@ -1,0 +1,52 @@
+{
+  "patch": "patch-001",
+  "required_base": "baseline-000",
+  "date": "2026-11-26",
+  "changes": [
+    {
+      "path": "album-catalog.json",
+      "operation": "replace",
+      "old_sha256": "4220ae874a55bfc1baed868f2295df9039005b617800e80df6c8301472d2f6e3",
+      "new_sha256": "ade12868d6771c3cd0ca730cc7704aabd77623d0b3573ff3df41aae6b91bf9b6"
+    },
+    {
+      "path": "album-capture-dates.json",
+      "operation": "replace",
+      "old_sha256": "e05577593402752d06eb85a5f82090fc4357b9998b4b2c1f62010f84b836b932",
+      "new_sha256": "8088cbc90dbdbb8f30a63878a15685c994a80e8f32b81bda835bee51cf3c1b92"
+    },
+    {
+      "path": "album-updates.json",
+      "operation": "replace",
+      "old_sha256": "ec05750a7139a11d45e8a7797a55d90083a852d60bb36ff7f7e787a512187bb9",
+      "new_sha256": "6b758d13daaaa50d6a35d4b15ec08244adb4d431c3dc3c196ad804ff9d5952b6"
+    },
+    {
+      "path": ".yearbook/release.json",
+      "operation": "replace",
+      "old_sha256": "3c9684029bc66bd0a1e477d9b3b7cfbb92a22125d5dcff10b783e2b3aac1e48b",
+      "new_sha256": "2b7a338cc995a9ecd6b7bddfb3faba7faf4ca25029cf3786242e0a4646be81b8"
+    },
+    {
+      "path": "CLEANUP-PATCH-001.ps1",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "7df036d8c224529e250badd907f8cf13e250dc8e51a5df4236150b13fcaaa7d9"
+    },
+    {
+      "path": "PATCH-001-README.md",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "b6ed2720768f938710681048a5662c7f3be9605c7a68b3ce7e097f738bd336c7"
+    }
+  ],
+  "deletions": [
+    {
+      "path": "assets/golden-moments/7fc5f6d0f6384b3a94d5b8f304805e6b2d49193b4e0944c692b2bb7b34b109b2.webp",
+      "old_sha256": "83d36623f10bf2a4a55f5b380faf47a2f5cc8472eeea47a81edf73fda99fff64",
+      "bytes": 152520
+    }
+  ],
+  "validation": "Passed targeted catalog removal, metadata cleanup, unchanged other entries, and full baseline text reference scan.",
+  "github_deployment": "Not performed; manual commit and push required."
+}
