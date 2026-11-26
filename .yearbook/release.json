@@ -1,0 +1,28 @@
+{
+  "project": "Golden Grain Yearbook 2026",
+  "release": "baseline-000",
+  "checkpoint_date": "2026-11-26",
+  "github_status": "Active baseline, as designated by Omar; remote GitHub commit not independently verified",
+  "github_repo": "omarmachucabell/golden-grain-yearbook-2026",
+  "source_commit": "5f587584f2f83555490d5b30ebd209844ab79192",
+  "sites_version": 206,
+  "files": 875,
+  "unpacked_bytes": 894024430,
+  "baseline_archives": [
+    {
+      "name": "Golden-Grain-2026-GitHub-Part-1.zip",
+      "library_file_id": "libfile_6978f3c8c2c881918b5ee7a8619df54d",
+      "file_id": "file_000000003d3481f6b535fba1a8ed60f3",
+      "bytes": 451604891
+    },
+    {
+      "name": "Golden-Grain-2026-GitHub-Part-2.zip",
+      "library_file_id": "libfile_2c056321f1708191b6bc952efa3983e8",
+      "file_id": "file_00000000322c81f6b0f5b0c15c6a8e96",
+      "bytes": 436778021
+    }
+  ],
+  "latest_delivered_patch": null,
+  "latest_confirmed_applied_patch": null,
+  "sync": "Manual only; Sites changes do not sync to GitHub"
+}
