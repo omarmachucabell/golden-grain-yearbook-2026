@@ -1,13 +1,13 @@
 {
   "project": "Golden Grain Yearbook 2026",
-  "release": "patch-002",
-  "checkpoint_date": "2026-11-26",
-  "github_status": "Patch 002 prepared for manual application; GitHub deployment not confirmed",
+  "release": "patch-003",
+  "checkpoint_date": "2026-11-27",
+  "github_status": "Patch 003 prepared for manual application; GitHub deployment not confirmed",
   "github_repo": "omarmachucabell/golden-grain-yearbook-2026",
   "source_commit": "5f587584f2f83555490d5b30ebd209844ab79192",
   "sites_version": 206,
-  "files": 902,
-  "unpacked_bytes": 899911424,
+  "files": 904,
+  "unpacked_bytes": 899914585,
   "baseline_archives": [
     {
       "name": "Golden-Grain-2026-GitHub-Part-1.zip",
@@ -22,11 +22,13 @@
       "bytes": 436778021
     }
   ],
-  "latest_delivered_patch": "patch-002",
+  "latest_delivered_patch": "patch-003",
   "latest_confirmed_applied_patch": null,
   "sync": "Manual only; Sites changes do not sync to GitHub",
-  "required_base": "patch-001",
-  "change": "Add 20 Kolby Roe photos, curated album placement, and linked per-photo credit",
+  "required_base": "patch-002",
+  "change": "Add Alejandra and Paris quotes to Weekly Spotlight",
   "baseline_files": 875,
-  "baseline_unpacked_bytes": 894024430
+  "baseline_unpacked_bytes": 894024430,
+  "custom_domain": "ggryearbook.com",
+  "size_scope": "Tracked export and patches only; excludes separately added files including CNAME"
 }

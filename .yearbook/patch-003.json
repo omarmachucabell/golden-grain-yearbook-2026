@@ -1,0 +1,41 @@
+{
+  "patch": "patch-003",
+  "required_base": "patch-002",
+  "date": "2026-11-27",
+  "changes": [
+    {
+      "path": "spotlight.html",
+      "operation": "replace",
+      "old_sha256": "8b66d6ff2e8e2d435773781d2022a02237cb33d651fc0284fed27a36abb97594",
+      "new_sha256": "7da60c07ab3c8e511ccf299ad408a1cbf7e5dd024160f07bdaedf6210953e3cf",
+      "bytes": 36528
+    },
+    {
+      "path": ".yearbook/release.json",
+      "operation": "replace",
+      "old_sha256": "ea67e6029fe029080d4a26098cda18f333441dad61ab5e1a7c383f5e7e4823d5",
+      "new_sha256": "7b3f1a6fd789f4b919a91b305f383c8109bdae58c854d93eee20164bc7ecf01f",
+      "bytes": 1312
+    },
+    {
+      "path": "export-report.json",
+      "operation": "replace",
+      "old_sha256": "98f9193cf585e701621035f10ae8978b17172fe8cb8e97fdb02c96fba97638c0",
+      "new_sha256": "a29691c0c041844a048cc6807121d59a0e0d5ea772c217daab9888dd15b8758c",
+      "bytes": 518
+    },
+    {
+      "path": "PATCH-003-README.md",
+      "operation": "add",
+      "old_sha256": null,
+      "new_sha256": "75ea2b772cecb71dc48c8ef5bd24da57bca2e75329b9a2ee892af345b0ec6739",
+      "bytes": 1568
+    }
+  ],
+  "deletions": [],
+  "budget_bytes": 900000000,
+  "validation": "Exact quote text, honoree placement, attribution and placeholder removal verified; reversing the two substitutions restores the original page byte for byte.",
+  "github_deployment": "Not performed; manual commit and push required.",
+  "site_bytes_after_patch": 899914585,
+  "site_files_after_patch": 904
+}
